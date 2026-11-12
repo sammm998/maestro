@@ -1,0 +1,17 @@
+{
+  "name": "@maestro/evals",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "eval": "tsx src/run.ts",
+    "seed-demo": "tsx --env-file-if-exists=../.env src/seed-demo.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@maestro/core": "workspace:*",
+    "@maestro/db": "workspace:*",
+    "@maestro/llm": "workspace:*"
+  },
+  "devDependencies": { "tsx": "^4.23.15" }
+}

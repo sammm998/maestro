@@ -1,0 +1,21 @@
+{
+  "user": "jakob",
+  "description": "Hobby game developer. English.",
+  "memories": [
+    { "label": "project_tidewalker", "kind": "project", "source": "claude", "daysAgo": 4, "importance": 0.9, "title": "Tidewalker roguelike", "content": "The user is making Tidewalker, a pixel-art roguelike where the tide rises every turn and floods the dungeon.", "entities": [["project", "Tidewalker"]] },
+    { "label": "decision_engine_old", "kind": "decision", "source": "chatgpt", "daysAgo": 90, "importance": 0.6, "status": "superseded", "title": "Unity for Tidewalker", "content": "The user chose Unity as the engine for Tidewalker.", "entities": [["project", "Tidewalker"]] },
+    { "label": "decision_engine", "kind": "decision", "source": "claude", "daysAgo": 30, "importance": 0.75, "title": "Moved to Godot 4", "content": "The user moved Tidewalker from Unity to Godot 4 and writes gameplay code in GDScript.", "entities": [["project", "Tidewalker"]] },
+    { "label": "idea_tide", "kind": "idea", "source": "chatgpt", "daysAgo": 7, "importance": 0.7, "title": "Tide as a resource", "content": "Mechanic idea: players can bottle seawater to delay the tide for three turns.", "entities": [["project", "Tidewalker"]] },
+    { "label": "pref_art", "kind": "preference", "source": "higgsfield", "daysAgo": 14, "importance": 0.6, "title": "16x16 pixel art, muted palette", "content": "The user wants 16x16 pixel art with a muted teal and sand palette for all Tidewalker assets." },
+    { "label": "task_steam", "kind": "task", "source": "claude", "daysAgo": 2, "importance": 0.5, "title": "Steam page", "content": "The user needs to set up the Steam page and capsule art for Tidewalker before the demo festival.", "entities": [["project", "Tidewalker"]] },
+    { "label": "person_lea", "kind": "person", "source": "chatgpt", "daysAgo": 25, "importance": 0.5, "title": "Lea – composer", "content": "Lea is composing an ambient soundtrack for Tidewalker using field recordings of waves.", "entities": [["person", "Lea"], ["project", "Tidewalker"]] },
+    { "label": "fact_dayjob", "kind": "fact", "source": "chatgpt", "daysAgo": 150, "importance": 0.4, "title": "Works as nurse", "content": "The user works night shifts as a nurse and develops games on days off." }
+  ],
+  "queries": [
+    { "q": "which engine is my game in", "expect": ["decision_engine"], "forbid": ["decision_engine_old"] },
+    { "q": "generate an enemy sprite for my game", "expect": ["pref_art", "project_tidewalker"] },
+    { "q": "the mechanic I brainstormed with ChatGPT", "expect": ["idea_tide"] },
+    { "q": "who makes the music", "expect": ["person_lea"] },
+    { "q": "what do I need to do before the demo festival", "expect": ["task_steam"] }
+  ]
+}

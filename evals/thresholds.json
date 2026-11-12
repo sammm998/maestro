@@ -1,0 +1,7 @@
+{
+  "_comment": "CI fails if a metric drops below these. Baseline measured with the offline hash embedder; raise when real embeddings are used.",
+  "recallAt5": 0.88,
+  "mrr": 0.8,
+  "staleRate": 0.0,
+  "getContextP95Ms": 800
+}

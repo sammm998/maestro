@@ -1,0 +1,21 @@
+{
+  "user": "omar",
+  "description": "Cooking YouTuber. English.",
+  "memories": [
+    { "label": "idea_series", "kind": "idea", "source": "chatgpt", "daysAgo": 3, "importance": 0.85, "title": "15-minute Lebanese series", "content": "The user plans a YouTube series called '15-minute Lebanese' with weeknight versions of his mother's recipes, shot overhead.", "entities": [["project", "15-minute Lebanese"]] },
+    { "label": "pref_video_style", "kind": "preference", "source": "higgsfield", "daysAgo": 10, "importance": 0.7, "title": "Warm golden-hour look", "content": "For generated B-roll the user wants a warm golden-hour look, shallow depth of field and steam visible over food." },
+    { "label": "decision_schedule", "kind": "decision", "source": "claude", "daysAgo": 8, "importance": 0.65, "title": "Upload Thursdays 17:00", "content": "The user decided to upload every Thursday at 17:00 CET.", "entities": [["project", "15-minute Lebanese"]] },
+    { "label": "person_dina", "kind": "person", "source": "chatgpt", "daysAgo": 30, "importance": 0.55, "title": "Dina – editor", "content": "Dina edits the user's videos and needs scripts with timestamps for B-roll.", "entities": [["person", "Dina"]] },
+    { "label": "fact_channel", "kind": "fact", "source": "chatgpt", "daysAgo": 120, "importance": 0.5, "title": "Channel size", "content": "The user's cooking channel has about 48,000 subscribers." },
+    { "label": "task_thumbs", "kind": "task", "source": "claude", "daysAgo": 2, "importance": 0.5, "title": "Thumbnails for episode 1", "content": "The user needs three thumbnail options for episode 1 (fattoush) of the new series.", "entities": [["project", "15-minute Lebanese"]] },
+    { "label": "pref_diet", "kind": "preference", "source": "chatgpt", "daysAgo": 50, "importance": 0.4, "title": "No pork recipes", "content": "The user never features pork in recipes." },
+    { "label": "fact_cat", "kind": "fact", "source": "chatgpt", "daysAgo": 90, "importance": 0.1, "title": "Cat named Za'atar", "content": "The user has a cat named Za'atar." }
+  ],
+  "queries": [
+    { "q": "make the video I talked about with ChatGPT", "expect": ["idea_series"] },
+    { "q": "generate b-roll of hummus", "expect": ["pref_video_style"] },
+    { "q": "write a script my editor can use", "expect": ["person_dina"] },
+    { "q": "when do I publish", "expect": ["decision_schedule"] },
+    { "q": "thumbnail ideas for the fattoush episode", "expect": ["task_thumbs"] }
+  ]
+}

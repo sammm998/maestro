@@ -1,0 +1,23 @@
+{
+  "user": "maya",
+  "description": "Novelist working on a second book. English.",
+  "memories": [
+    { "label": "project_book", "kind": "project", "source": "claude", "daysAgo": 5, "importance": 0.9, "title": "The Salt Archive", "content": "The user is writing a literary novel called The Salt Archive about three generations of women running a salt works on the Brittany coast.", "entities": [["project", "The Salt Archive"]] },
+    { "label": "pref_style", "kind": "preference", "source": "claude", "daysAgo": 40, "importance": 0.75, "title": "Spare prose style", "content": "The user wants feedback that protects her spare, present-tense prose and avoids adding adjectives." },
+    { "label": "decision_pov_old", "kind": "decision", "source": "chatgpt", "daysAgo": 80, "importance": 0.6, "status": "superseded", "title": "First-person narrator", "content": "The user decided The Salt Archive is narrated in first person by the granddaughter.", "entities": [["project", "The Salt Archive"]] },
+    { "label": "decision_pov", "kind": "decision", "source": "claude", "daysAgo": 12, "importance": 0.7, "title": "Rotating close-third POV", "content": "The user switched The Salt Archive to a rotating close-third point of view, one chapter per woman.", "entities": [["project", "The Salt Archive"]] },
+    { "label": "person_jonas", "kind": "person", "source": "chatgpt", "daysAgo": 30, "importance": 0.6, "title": "Jonas – editor", "content": "Jonas Berg is the user's editor at her publisher; he prefers to receive chapters as .docx.", "entities": [["person", "Jonas Berg"]] },
+    { "label": "task_send", "kind": "task", "source": "claude", "daysAgo": 3, "importance": 0.6, "title": "Send chapters 1–4", "content": "The user needs to send revised chapters 1–4 of The Salt Archive to Jonas by the end of November.", "entities": [["project", "The Salt Archive"], ["person", "Jonas Berg"]] },
+    { "label": "idea_grandmother", "kind": "idea", "source": "gemini", "daysAgo": 9, "importance": 0.55, "title": "Grandmother's ledger", "content": "Idea: the grandmother's salt ledger appears as interstitial pages between parts of the novel." },
+    { "label": "artifact_blurb", "kind": "artifact", "source": "chatgpt", "daysAgo": 20, "importance": 0.5, "title": "Pitch blurb", "content": "Pitch blurb the user approved: 'Salt keeps what the sea gives back. Three women, one shoreline, a hundred years of secrets.'" },
+    { "label": "fact_lyon", "kind": "fact", "source": "chatgpt", "daysAgo": 200, "importance": 0.4, "title": "Lives in Lyon", "content": "The user is British and lives in Lyon." },
+    { "label": "pref_tea", "kind": "preference", "source": "chatgpt", "daysAgo": 100, "importance": 0.15, "title": "Earl grey", "content": "The user drinks earl grey while writing." }
+  ],
+  "queries": [
+    { "q": "which point of view is the novel in?", "expect": ["decision_pov"], "forbid": ["decision_pov_old"] },
+    { "q": "edit this paragraph from my book", "expect": ["pref_style", "project_book"] },
+    { "q": "draft an email to my editor", "expect": ["person_jonas", "task_send"] },
+    { "q": "the blurb we wrote in ChatGPT", "expect": ["artifact_blurb"] },
+    { "q": "ledger idea", "expect": ["idea_grandmother"] }
+  ]
+}

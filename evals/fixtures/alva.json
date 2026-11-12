@@ -1,0 +1,28 @@
+{
+  "user": "alva",
+  "description": "Grundare av ett litet sneakermärke i Malmö. Svenska.",
+  "memories": [
+    { "label": "idea_sneaker_video", "kind": "idea", "source": "chatgpt", "daysAgo": 0, "importance": 0.85, "title": "15-sekunders video för sneaker-drop", "content": "Användaren planerar en 15-sekunders video för sin nya sneaker-drop: nattlig Malmö-estetik, neon, slow motion, avslutas med loggan i rosa neon.", "entities": [["project", "Nattsko-droppen"]] },
+    { "label": "project_drop", "kind": "project", "source": "claude", "daysAgo": 6, "importance": 0.9, "title": "Nattsko-droppen", "content": "Användarens nästa kollektion heter Nattsko: 300 par reflekterande sneakers som säljs via egen webbshop.", "entities": [["project", "Nattsko-droppen"]] },
+    { "label": "decision_launch", "kind": "decision", "source": "chatgpt", "daysAgo": 9, "importance": 0.8, "title": "Lansering 5 december", "content": "Användaren har bestämt att Nattsko-droppen släpps fredag 5 december kl. 19.00.", "entities": [["project", "Nattsko-droppen"]] },
+    { "label": "person_sara", "kind": "person", "source": "claude", "daysAgo": 20, "importance": 0.6, "title": "Sara – designer", "content": "Sara Lind är frilansande designer som ritar Nattsko-modellerna och sköter färgprover.", "entities": [["person", "Sara Lind"], ["project", "Nattsko-droppen"]] },
+    { "label": "pref_tone_old", "kind": "preference", "source": "chatgpt", "daysAgo": 60, "importance": 0.6, "status": "superseded", "title": "Formell ton i texter", "content": "Användaren vill ha en formell och korrekt ton i produkttexter." },
+    { "label": "pref_tone", "kind": "preference", "source": "claude", "daysAgo": 4, "importance": 0.7, "title": "Avslappnad ton i texter", "content": "Användaren vill numera ha en avslappnad, lite kaxig ton i produkttexter och sociala medier, gärna med skånska uttryck." },
+    { "label": "task_samples", "kind": "task", "source": "chatgpt", "daysAgo": 3, "importance": 0.5, "title": "Beställa provpar", "content": "Användaren behöver beställa tre provpar i storlek 38, 42 och 45 från fabriken i Porto." , "entities": [["project", "Nattsko-droppen"]] },
+    { "label": "idea_popup", "kind": "idea", "source": "gemini", "daysAgo": 15, "importance": 0.55, "title": "Pop-up-butik på Möllan", "content": "Användaren funderar på en pop-up-butik på Möllevångstorget lanseringskvällen med DJ och neonbelysning." },
+    { "label": "artifact_tagline", "kind": "artifact", "source": "lovable", "daysAgo": 2, "importance": 0.6, "title": "Tagline för landningssidan", "content": "Landningssidan som användaren byggde i Lovable har taglinen ”Gå i mörkret. Syns i ljuset.”" },
+    { "label": "fact_city", "kind": "fact", "source": "chatgpt", "daysAgo": 90, "importance": 0.5, "title": "Bor i Malmö", "content": "Användaren bor och driver sitt företag i Malmö." },
+    { "label": "pref_colors", "kind": "preference", "source": "claude", "daysAgo": 30, "importance": 0.5, "title": "Färgpalett", "content": "Användarens varumärke använder svart, reflexgrått och rosa neon som färgpalett." },
+    { "label": "fact_recipe", "kind": "fact", "source": "chatgpt", "daysAgo": 40, "importance": 0.2, "title": "Gillar ramen", "content": "Användaren lagar gärna ramen på helgerna." }
+  ],
+  "queries": [
+    { "q": "gör videon jag pratade om med ChatGPT", "expect": ["idea_sneaker_video"] },
+    { "q": "Skriv en manusprompt för videon jag planerade", "expect": ["idea_sneaker_video"] },
+    { "q": "vilken ton ska produkttexterna ha?", "expect": ["pref_tone"], "forbid": ["pref_tone_old"] },
+    { "q": "när släpps droppen", "expect": ["decision_launch"] },
+    { "q": "vem designar skorna?", "expect": ["person_sara"] },
+    { "q": "tagline från landningssidan i Lovable", "expect": ["artifact_tagline"] },
+    { "q": "vilka färger använder mitt varumärke", "expect": ["pref_colors"] },
+    { "q": "planera lanseringskvällen", "expect": ["decision_launch", "idea_popup"] }
+  ]
+}

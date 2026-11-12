@@ -1,0 +1,21 @@
+{
+  "user": "sofia",
+  "description": "Mellanstadielärare. Svenska.",
+  "memories": [
+    { "label": "project_klimat", "kind": "project", "source": "chatgpt", "daysAgo": 6, "importance": 0.85, "title": "Klimatveckan i årskurs 5", "content": "Användaren planerar Klimatveckan för årskurs 5 vecka 48 med stationer om vatten, mat och transporter.", "entities": [["project", "Klimatveckan"]] },
+    { "label": "pref_language", "kind": "preference", "source": "claude", "daysAgo": 20, "importance": 0.8, "title": "Enkelt språk för 11-åringar", "content": "Användaren vill att elevmaterial skrivs på enkel svenska för 11-åringar, med korta meningar och utan facktermer." },
+    { "label": "idea_escape", "kind": "idea", "source": "gemini", "daysAgo": 11, "importance": 0.6, "title": "Escape room om koldioxid", "content": "Användaren vill bygga ett escape room i klassrummet där eleverna löser gåtor om koldioxidens kretslopp.", "entities": [["project", "Klimatveckan"]] },
+    { "label": "task_grade", "kind": "task", "source": "chatgpt", "daysAgo": 1, "importance": 0.5, "title": "Rätta uppsatser", "content": "Användaren ska rätta 27 berättande texter i svenska före fredag." },
+    { "label": "fact_school", "kind": "fact", "source": "chatgpt", "daysAgo": 150, "importance": 0.5, "title": "Lärare i Umeå", "content": "Användaren är lärare på en mellanstadieskola i Umeå." },
+    { "label": "person_ahmed", "kind": "person", "source": "claude", "daysAgo": 22, "importance": 0.45, "title": "Ahmed – NO-kollega", "content": "Ahmed är användarens NO-kollega som håller i stationen om vatten under Klimatveckan.", "entities": [["person", "Ahmed"], ["project", "Klimatveckan"]] },
+    { "label": "decision_grading", "kind": "decision", "source": "claude", "daysAgo": 13, "importance": 0.55, "title": "Bedömning med matris", "content": "Användaren har bestämt att använda en bedömningsmatris med tre nivåer för Klimatveckans redovisningar.", "entities": [["project", "Klimatveckan"]] },
+    { "label": "pref_coffee", "kind": "preference", "source": "chatgpt", "daysAgo": 60, "importance": 0.1, "title": "Kaffe utan mjölk", "content": "Användaren dricker kaffe utan mjölk." }
+  ],
+  "queries": [
+    { "q": "gör ett arbetsblad till eleverna", "expect": ["pref_language"] },
+    { "q": "escape room-idén", "expect": ["idea_escape"] },
+    { "q": "hur ska redovisningarna bedömas", "expect": ["decision_grading"] },
+    { "q": "vem har vattenstationen", "expect": ["person_ahmed"] },
+    { "q": "planera klimatveckan", "expect": ["project_klimat"] }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "user": "erik",
+  "description": "Backendutvecklare som bygger en faktureringstjänst på fritiden. Svenska.",
+  "memories": [
+    { "label": "project_faktura", "kind": "project", "source": "claude", "daysAgo": 10, "importance": 0.9, "title": "Fakturaflow", "content": "Användaren bygger Fakturaflow, en faktureringstjänst för frilansare med automatiska påminnelser och Swish-betalning.", "entities": [["project", "Fakturaflow"]] },
+    { "label": "pref_stack", "kind": "preference", "source": "cursor", "daysAgo": 25, "importance": 0.8, "title": "TypeScript och Postgres", "content": "Användaren skriver helst TypeScript med strikt typning och använder Postgres som databas." },
+    { "label": "decision_orm_old", "kind": "decision", "source": "chatgpt", "daysAgo": 50, "importance": 0.6, "status": "superseded", "title": "Prisma som ORM", "content": "Användaren valde Prisma som ORM för Fakturaflow.", "entities": [["project", "Fakturaflow"]] },
+    { "label": "decision_orm", "kind": "decision", "source": "claude", "daysAgo": 8, "importance": 0.7, "title": "Bytte till Drizzle", "content": "Användaren har bytt från Prisma till Drizzle ORM i Fakturaflow för bättre SQL-kontroll.", "entities": [["project", "Fakturaflow"]] },
+    { "label": "task_node", "kind": "task", "source": "cursor", "daysAgo": 2, "importance": 0.5, "title": "Uppgradera till Node 22", "content": "Användaren behöver uppgradera Fakturaflows server från Node 18 till Node 22 innan nästa release.", "entities": [["project", "Fakturaflow"]] },
+    { "label": "idea_cli", "kind": "idea", "source": "chatgpt", "daysAgo": 18, "importance": 0.5, "title": "CLI för tidrapportering", "content": "Användaren har en idé om ett kommandoradsverktyg för tidrapportering som skickar timmar direkt till Fakturaflow." },
+    { "label": "fact_job", "kind": "fact", "source": "chatgpt", "daysAgo": 120, "importance": 0.6, "title": "Jobbar på fintech", "content": "Användaren arbetar som backendutvecklare på ett fintechbolag i Stockholm." },
+    { "label": "pref_tests", "kind": "preference", "source": "claude", "daysAgo": 35, "importance": 0.6, "title": "Vitest framför Jest", "content": "Användaren föredrar Vitest framför Jest och vill ha tester skrivna tillsammans med koden." },
+    { "label": "decision_hosting", "kind": "decision", "source": "gemini", "daysAgo": 12, "importance": 0.6, "title": "Hosting i Stockholm", "content": "Användaren har bestämt att Fakturaflow ska hostas i en datacenterregion i Stockholm av GDPR-skäl.", "entities": [["project", "Fakturaflow"]] },
+    { "label": "fact_dog", "kind": "fact", "source": "chatgpt", "daysAgo": 70, "importance": 0.2, "title": "Har en hund", "content": "Användaren har en border collie som heter Pixel." }
+  ],
+  "queries": [
+    { "q": "vilken ORM använder jag i Fakturaflow?", "expect": ["decision_orm"], "forbid": ["decision_orm_old"] },
+    { "q": "set up a test file for the invoice reminder module", "expect": ["pref_tests"] },
+    { "q": "vad ska jag göra innan nästa release", "expect": ["task_node"] },
+    { "q": "idén om tidrapportering", "expect": ["idea_cli"] },
+    { "q": "var ska tjänsten hostas", "expect": ["decision_hosting"] },
+    { "q": "vilket språk och vilken databas föredrar jag", "expect": ["pref_stack"] }
+  ]
+}

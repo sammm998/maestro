@@ -1,0 +1,20 @@
+{
+  "name": "@maestro/worker",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch --env-file-if-exists=../../.env src/main.ts",
+    "start": "tsx src/main.ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@maestro/core": "workspace:*",
+    "@maestro/db": "workspace:*",
+    "@maestro/importers": "workspace:*",
+    "@maestro/llm": "workspace:*",
+    "pg-boss": "^12.38.2"
+  },
+  "devDependencies": { "tsx": "^4.23.15" }
+}

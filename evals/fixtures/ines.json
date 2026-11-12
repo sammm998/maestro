@@ -1,0 +1,19 @@
+{
+  "user": "ines",
+  "description": "PhD student in urban ecology. English.",
+  "memories": [
+    { "label": "project_thesis", "kind": "project", "source": "claude", "daysAgo": 10, "importance": 0.9, "title": "Thesis on urban pollinators", "content": "The user's PhD thesis studies how green roofs in Copenhagen affect wild bee diversity.", "entities": [["project", "PhD thesis"]] },
+    { "label": "pref_citation", "kind": "preference", "source": "chatgpt", "daysAgo": 45, "importance": 0.7, "title": "APA 7 citations", "content": "The user uses APA 7th edition citations and manages references in Zotero." },
+    { "label": "task_chapter", "kind": "task", "source": "claude", "daysAgo": 4, "importance": 0.65, "title": "Submit methods chapter", "content": "The user must submit the methods chapter of her thesis to her supervisor by 1 December.", "entities": [["project", "PhD thesis"]] },
+    { "label": "person_supervisor", "kind": "person", "source": "chatgpt", "daysAgo": 60, "importance": 0.6, "title": "Prof. Hansen – supervisor", "content": "Professor Mette Hansen is the user's supervisor and wants drafts with tracked changes.", "entities": [["person", "Mette Hansen"]] },
+    { "label": "idea_paper", "kind": "idea", "source": "gemini", "daysAgo": 14, "importance": 0.55, "title": "Paper on night pollinators", "content": "Paper idea: compare moth activity on lit vs unlit green roofs.", "entities": [["project", "PhD thesis"]] },
+    { "label": "decision_stats", "kind": "decision", "source": "claude", "daysAgo": 20, "importance": 0.6, "title": "Mixed models in R", "content": "The user decided to analyse bee counts with generalised linear mixed models in R (glmmTMB).", "entities": [["project", "PhD thesis"]] },
+    { "label": "fact_bike", "kind": "fact", "source": "chatgpt", "daysAgo": 80, "importance": 0.1, "title": "Cycles to campus", "content": "The user cycles to campus every day." }
+  ],
+  "queries": [
+    { "q": "format these references", "expect": ["pref_citation"] },
+    { "q": "help me with the statistics for my bee data", "expect": ["decision_stats"] },
+    { "q": "what's due for my supervisor", "expect": ["task_chapter", "person_supervisor"] },
+    { "q": "the moth paper idea", "expect": ["idea_paper"] }
+  ]
+}

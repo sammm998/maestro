@@ -1,0 +1,19 @@
+{
+  "user": "lukas",
+  "description": "Founder of a fitness app. English.",
+  "memories": [
+    { "label": "project_pulse", "kind": "project", "source": "lovable", "daysAgo": 6, "importance": 0.9, "title": "Pulse fitness app", "content": "The user is building Pulse, a habit-based fitness app for busy parents with 10-minute workouts.", "entities": [["project", "Pulse"]] },
+    { "label": "idea_streaks", "kind": "idea", "source": "chatgpt", "daysAgo": 9, "importance": 0.7, "title": "Family streaks", "content": "Gamification idea for Pulse: shared family streaks where kids can 'high-five' a parent's finished workout.", "entities": [["project", "Pulse"]] },
+    { "label": "pref_design", "kind": "preference", "source": "lovable", "daysAgo": 12, "importance": 0.7, "title": "Minimal UI, big buttons", "content": "The user wants Pulse's UI minimal with large tap targets, one primary action per screen and a lime accent colour." },
+    { "label": "decision_pricing", "kind": "decision", "source": "claude", "daysAgo": 15, "importance": 0.65, "title": "Freemium, €4.99/month", "content": "The user decided Pulse will be freemium with a €4.99 monthly premium tier.", "entities": [["project", "Pulse"]] },
+    { "label": "special_knee", "kind": "fact", "source": "chatgpt", "daysAgo": 40, "importance": 0.4, "sensitivity": "special_category", "title": "Knee injury", "content": "The user had ACL surgery last year and avoids jumping exercises." },
+    { "label": "task_testflight", "kind": "task", "source": "claude", "daysAgo": 2, "importance": 0.5, "title": "TestFlight build", "content": "The user needs to ship a TestFlight build of Pulse to 20 beta families.", "entities": [["project", "Pulse"]] },
+    { "label": "fact_berlin", "kind": "fact", "source": "chatgpt", "daysAgo": 150, "importance": 0.4, "title": "Lives in Berlin", "content": "The user lives in Berlin with two kids." }
+  ],
+  "queries": [
+    { "q": "design the onboarding screen for my app", "expect": ["pref_design", "project_pulse"] },
+    { "q": "the gamification idea from ChatGPT", "expect": ["idea_streaks"] },
+    { "q": "how much does premium cost", "expect": ["decision_pricing"] },
+    { "q": "beta release to-do", "expect": ["task_testflight"] }
+  ]
+}

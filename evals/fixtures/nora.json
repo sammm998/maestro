@@ -1,0 +1,20 @@
+{
+  "user": "nora",
+  "description": "UX-designer som söker jobb. Svenska.",
+  "memories": [
+    { "label": "fact_role", "kind": "fact", "source": "chatgpt", "daysAgo": 40, "importance": 0.75, "title": "UX-designer med 6 års erfarenhet", "content": "Användaren är UX-designer med sex års erfarenhet, främst av bank- och vårdappar." },
+    { "label": "decision_city_old", "kind": "decision", "source": "chatgpt", "daysAgo": 70, "importance": 0.6, "status": "superseded", "title": "Söker jobb i Stockholm", "content": "Användaren har bestämt sig för att söka jobb i Stockholm." },
+    { "label": "decision_city", "kind": "decision", "source": "claude", "daysAgo": 9, "importance": 0.75, "title": "Flyttar till Göteborg", "content": "Användaren har bestämt sig för att flytta till Göteborg i februari och söker jobb där." },
+    { "label": "pref_letter", "kind": "preference", "source": "claude", "daysAgo": 15, "importance": 0.7, "title": "Personliga brev: konkret och varmt", "content": "Användaren vill att personliga brev är konkreta, varma och max en sida, med ett exempel på mätbart resultat." },
+    { "label": "task_apply", "kind": "task", "source": "chatgpt", "daysAgo": 2, "importance": 0.6, "title": "Söka tre tjänster", "content": "Användaren ska söka tjänster hos Volvo Cars, ett healthtech-bolag och en designbyrå före söndag." },
+    { "label": "artifact_case", "kind": "artifact", "source": "lovable", "daysAgo": 5, "importance": 0.6, "title": "Portfolio-case Vårdappen", "content": "Användarens portfoliosida i Lovable lyfter caset Vårdappen där bokningstiden minskade med 40 %." },
+    { "label": "special_health", "kind": "fact", "source": "chatgpt", "daysAgo": 30, "importance": 0.5, "sensitivity": "special_category", "title": "Hanterar stress", "content": "Användaren går i samtalsterapi för stress efter förra jobbet." },
+    { "label": "pref_music", "kind": "preference", "source": "chatgpt", "daysAgo": 100, "importance": 0.1, "title": "Lyssnar på jazz", "content": "Användaren lyssnar på jazz när hon jobbar." }
+  ],
+  "queries": [
+    { "q": "skriv ett personligt brev", "expect": ["pref_letter", "fact_role"] },
+    { "q": "var söker jag jobb?", "expect": ["decision_city"], "forbid": ["decision_city_old"] },
+    { "q": "vilket portfoliocase ska jag lyfta", "expect": ["artifact_case"] },
+    { "q": "vilka jobb ska jag söka i veckan", "expect": ["task_apply"] }
+  ]
+}

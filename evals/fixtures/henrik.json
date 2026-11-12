@@ -1,0 +1,19 @@
+{
+  "user": "henrik",
+  "description": "Driver ett kafé i Stockholms skärgård. Svenska.",
+  "memories": [
+    { "label": "project_cafe", "kind": "project", "source": "chatgpt", "daysAgo": 30, "importance": 0.85, "title": "Café Saltsjö", "content": "Användaren driver Café Saltsjö på Vaxholm med 40 platser och egen surdegsbakning.", "entities": [["project", "Café Saltsjö"]] },
+    { "label": "idea_menu", "kind": "idea", "source": "gemini", "daysAgo": 5, "importance": 0.65, "title": "Vintermeny med kardemumma", "content": "Användaren vill testa en vintermeny med kardemummabullar, saffransgröt och glögg utan alkohol.", "entities": [["project", "Café Saltsjö"]] },
+    { "label": "decision_hours", "kind": "decision", "source": "claude", "daysAgo": 7, "importance": 0.7, "title": "Vinteröppettider", "content": "Användaren har bestämt att Café Saltsjö har öppet torsdag–söndag 10–16 under vintern.", "entities": [["project", "Café Saltsjö"]] },
+    { "label": "pref_instagram", "kind": "preference", "source": "claude", "daysAgo": 18, "importance": 0.6, "title": "Instagram-ton", "content": "Användaren vill att Instagram-inlägg är korta, mysiga och alltid nämner dagens bulle." },
+    { "label": "task_oatmilk", "kind": "task", "source": "chatgpt", "daysAgo": 1, "importance": 0.4, "title": "Beställa havremjölk", "content": "Användaren ska beställa fyra kartonger havremjölk till helgen." },
+    { "label": "person_linnea", "kind": "person", "source": "chatgpt", "daysAgo": 40, "importance": 0.5, "title": "Linnea – bagare", "content": "Linnea är bagare på Café Saltsjö och ansvarar för surdegen.", "entities": [["person", "Linnea"], ["project", "Café Saltsjö"]] },
+    { "label": "fact_boat", "kind": "fact", "source": "chatgpt", "daysAgo": 120, "importance": 0.15, "title": "Har en segelbåt", "content": "Användaren har en gammal segelbåt som heter Måsen." }
+  ],
+  "queries": [
+    { "q": "skriv ett instagraminlägg om helgen", "expect": ["pref_instagram"] },
+    { "q": "när har vi öppet i vinter", "expect": ["decision_hours"] },
+    { "q": "menyidén jag hade", "expect": ["idea_menu"] },
+    { "q": "vem bakar surdegen", "expect": ["person_linnea"] }
+  ]
+}
