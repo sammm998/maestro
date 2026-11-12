@@ -196,10 +196,11 @@ Verktygen ska vara få och tydliga, och beskrivningarna skrivna så att ChatGPT 
 - **Klart när:** man laddar upp sin ChatGPT-export och ser en vettig lista med projekt och idéer inom ett par minuter.
 
 ### Fas 2 – Maestro pratar med verktygen (vecka 2) ← **investerardemon**
-- [ ] Remote MCP-server med OAuth 2.1 (dynamic client registration enligt MCP-specen)
-- [ ] Alla tools från §5
+- [x] Remote MCP-server med OAuth 2.1 (dynamic client registration enligt MCP-specen)
+- [x] Alla tools från §5
 - [ ] Testat end-to-end i **Claude** (custom connector), **ChatGPT** (developer mode/connector) och **Cursor**
-- [ ] Dashboard: "Anslutna verktyg" med grants, scopes, återkalla, och logg över vad varje verktyg läst
+  - *Status:* demo-manuset körs end-to-end med officiella MCP-SDK-klienten mot riktig OAuth (`apps/mcp/src/demo.e2e.test.ts`). Test i själva Claude/ChatGPT/Cursor återstår och kräver publik HTTPS-adress.
+- [x] Dashboard: "Anslutna verktyg" med grants, scopes, återkalla, och logg över vad varje verktyg läst
 - **Klart när demon i §9 fungerar live.**
 
 ### Fas 3 – Fånga allt automatiskt (vecka 3–4)

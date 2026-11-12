@@ -5,7 +5,7 @@
   "packageManager": "pnpm@10.28.0",
   "engines": { "node": ">=22.12" },
   "scripts": {
-    "dev": "turbo run dev --parallel --filter=@maestro/api --filter=@maestro/worker --filter=@maestro/web",
+    "dev": "turbo run dev --parallel --filter=@maestro/api --filter=@maestro/worker --filter=@maestro/web --filter=@maestro/mcp",
     "build": "turbo run build",
     "lint": "eslint .",
     "typecheck": "turbo run typecheck",

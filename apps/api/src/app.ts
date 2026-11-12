@@ -5,6 +5,8 @@ import type { AppContext, Env } from "./context";
 import { accountRoutes } from "./routes/account";
 import { importRoutes } from "./routes/imports";
 import { memoryRoutes } from "./routes/memories";
+import { toolRoutes } from "./routes/tools";
+import { oauthConsentRoutes, oauthPublicRoutes } from "./oauth";
 
 export function createApp(ctx: AppContext) {
   const app = new Hono<Env>();
@@ -20,6 +22,7 @@ export function createApp(ctx: AppContext) {
   });
 
   app.get("/health", (c) => c.json({ ok: true }));
+  app.route("/", oauthPublicRoutes(ctx));
   app.route("/api/auth", authRoutes(ctx));
 
   const api = new Hono<Env>();
@@ -27,6 +30,8 @@ export function createApp(ctx: AppContext) {
   api.route("/", memoryRoutes(ctx));
   api.route("/", importRoutes(ctx));
   api.route("/", accountRoutes(ctx));
+  api.route("/", toolRoutes(ctx));
+  api.route("/", oauthConsentRoutes(ctx));
   app.route("/api", api);
 
   app.onError((err, c) => {

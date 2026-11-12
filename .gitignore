@@ -9,3 +9,5 @@ dist
 *.log
 coverage
 evals/results
+next-env.d.ts
+*.tsbuildinfo
