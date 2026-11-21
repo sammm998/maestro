@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -11,6 +11,15 @@ function LoginForm() {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [devLink, setDevLink] = useState<string | null>(null);
+  const [codeRequired, setCodeRequired] = useState(false);
+  const [accessCode, setAccessCode] = useState("");
+  const [errorText, setErrorText] = useState("Något gick fel. Försök igen.");
+  useEffect(() => {
+    fetch("/api/auth/config")
+      .then((r) => r.json())
+      .then((d: { accessCodeRequired: boolean }) => setCodeRequired(d.accessCodeRequired))
+      .catch(() => {});
+  }, []);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -18,9 +27,12 @@ function LoginForm() {
     const res = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ email, next: params.get("next") ?? "/" }),
+      body: JSON.stringify({ email, next: params.get("next") ?? "/", ...(codeRequired ? { accessCode } : {}) }),
     });
-    if (!res.ok) return setState("error");
+    if (!res.ok) {
+      setErrorText(res.status === 403 ? "Fel åtkomstkod." : "Något gick fel. Försök igen.");
+      return setState("error");
+    }
     const body = (await res.json()) as { devLink?: string };
     setDevLink(body.devLink ?? null);
     setState("sent");
@@ -47,17 +59,20 @@ function LoginForm() {
               <p>Kolla din inkorg för {email}.</p>
               {devLink && (
                 <p className="rounded-md bg-muted p-3">
-                  Utvecklingsläge: <a className="font-medium text-primary underline" href={devLink}>öppna inloggningslänken</a>
+                  {codeRequired ? "Ingen e-post skickas ännu:" : "Utvecklingsläge:"} <a className="font-medium text-primary underline" href={devLink}>öppna inloggningslänken</a>
                 </p>
               )}
             </div>
           ) : (
             <form onSubmit={submit} className="space-y-3">
               <Input type="email" required autoFocus placeholder="du@exempel.se" value={email} onChange={(e) => setEmail(e.target.value)} />
+              {codeRequired && (
+                <Input type="password" required placeholder="Åtkomstkod" value={accessCode} onChange={(e) => setAccessCode(e.target.value)} />
+              )}
               <Button className="w-full" disabled={state === "sending"}>
                 {state === "sending" ? "Skickar…" : "Skicka inloggningslänk"}
               </Button>
-              {state === "error" && <p className="text-sm text-destructive">Något gick fel. Försök igen.</p>}
+              {state === "error" && <p className="text-sm text-destructive">{errorText}</p>}
             </form>
           )}
         </CardContent>

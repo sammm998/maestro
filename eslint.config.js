@@ -1,5 +1,6 @@
 import js from "@eslint/js";
 import tseslint from "typescript-eslint";
+import globals from "globals";
 
 export default tseslint.config(
   { ignores: ["**/node_modules/**", "**/.next/**", "**/dist/**", "**/.output/**", "**/.wxt/**", "**/drizzle/**", "**/next-env.d.ts"] },
@@ -16,5 +17,6 @@ export default tseslint.config(
       ] }]
     }
   },
-  { files: ["packages/llm/**"], rules: { "no-restricted-imports": "off" } }
+  { files: ["packages/llm/**"], rules: { "no-restricted-imports": "off" } },
+  { files: ["scripts/**/*.mjs"], languageOptions: { globals: globals.node } }
 );

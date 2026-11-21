@@ -45,6 +45,18 @@ async function login(email: string): Promise<string> {
   return cookie.split(";")[0]!;
 }
 
+describe("login access code (production without e-mail)", () => {
+  it("shows the link only with the right code", async () => {
+    const gated = createApp({ ...ctx, config: { ...ctx.config, devLoginLinks: false, loginAccessCode: "hemlig-kod" } });
+    const post = (body: object) =>
+      gated.request("/api/auth/login", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
+    expect((await post({ email: "a@b.se" })).status).toBe(403);
+    expect((await post({ email: "a@b.se", accessCode: "fel" })).status).toBe(403);
+    const ok = (await (await post({ email: "a@b.se", accessCode: "hemlig-kod" })).json()) as { devLink?: string };
+    expect(ok.devLink).toContain("/api/auth/verify?token=");
+  });
+});
+
 describe("phase 1 flow over HTTP", () => {
   it("rejects unauthenticated requests and cross-origin writes", async () => {
     expect((await app.request("/api/memories")).status).toBe(401);

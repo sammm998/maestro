@@ -9,6 +9,11 @@ export interface Config {
   cookieSecure: boolean;
   /** Return magic links in the API response (local dev only — never in production). */
   devLoginLinks: boolean;
+  /**
+   * Until an e-mail provider is wired up: in production the login link is shown
+   * only to someone who knows this shared code (AUTH_ACCESS_CODE).
+   */
+  loginAccessCode?: string;
 }
 
 export interface AppContext {
@@ -28,5 +33,6 @@ export function configFromEnv(env = process.env): Config {
     mcpUrl: (env.MCP_PUBLIC_URL ?? "http://localhost:8788/mcp").replace(/\/$/, ""),
     cookieSecure: publicUrl.startsWith("https://"),
     devLoginLinks: env.NODE_ENV !== "production" && env.AUTH_DEV_LINKS !== "0",
+    loginAccessCode: env.AUTH_ACCESS_CODE || undefined,
   };
 }

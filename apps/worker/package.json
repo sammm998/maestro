@@ -14,7 +14,7 @@
     "@maestro/db": "workspace:*",
     "@maestro/importers": "workspace:*",
     "@maestro/llm": "workspace:*",
-    "pg-boss": "^12.38.2"
-  },
-  "devDependencies": { "tsx": "^4.23.15" }
+    "pg-boss": "^12.38.2",
+    "tsx": "^4.23.15"
+  }
 }

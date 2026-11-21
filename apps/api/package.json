@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "exports": { "./app": "./src/app.ts" },
+  "exports": {
+    "./app": "./src/app.ts"
+  },
   "scripts": {
     "dev": "tsx watch --env-file-if-exists=../../.env src/main.ts",
     "start": "tsx src/main.ts",
@@ -17,7 +19,7 @@
     "@maestro/importers": "workspace:*",
     "@maestro/llm": "workspace:*",
     "hono": "^4.13.18",
-    "zod": "^4.6.7"
-  },
-  "devDependencies": { "tsx": "^4.23.15" }
+    "zod": "^4.6.7",
+    "tsx": "^4.23.15"
+  }
 }

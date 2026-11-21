@@ -1,4 +1,4 @@
-import { randomBytes } from "node:crypto";
+import { randomBytes, timingSafeEqual } from "node:crypto";
 import { Hono, type MiddlewareHandler } from "hono";
 import { deleteCookie, getCookie, setCookie } from "hono/cookie";
 import { z } from "zod";
@@ -9,6 +9,12 @@ import type { AppContext, Env } from "./context";
 export const SESSION_COOKIE = "maestro_session";
 const SESSION_DAYS = 30;
 const LOGIN_TOKEN_MINUTES = 15;
+
+function sameSecret(a: string, b: string) {
+  const x = Buffer.from(sha256(a));
+  const y = Buffer.from(sha256(b));
+  return timingSafeEqual(x, y);
+}
 
 export const newToken = () => randomBytes(32).toString("base64url");
 
@@ -51,9 +57,15 @@ export async function createSession(ctx: AppContext, userId: string) {
 export function authRoutes(ctx: AppContext) {
   const r = new Hono<Env>();
 
+  r.get("/config", (c) => c.json({ accessCodeRequired: !!ctx.config.loginAccessCode }));
+
   r.post("/login", async (c) => {
-    const body = z.object({ email: z.email(), next: z.string().optional() }).safeParse(await c.req.json().catch(() => ({})));
+    const body = z
+      .object({ email: z.email(), next: z.string().optional(), accessCode: z.string().max(200).optional() })
+      .safeParse(await c.req.json().catch(() => ({})));
     if (!body.success) return c.json({ error: "invalid_email" }, 400);
+    const codeOk = !!ctx.config.loginAccessCode && sameSecret(body.data.accessCode ?? "", ctx.config.loginAccessCode);
+    if (ctx.config.loginAccessCode && !codeOk) return c.json({ error: "invalid_access_code" }, 403);
     const email = body.data.email.trim().toLowerCase();
     const token = newToken();
     await ctx.admin.db.insert(loginTokens).values({
@@ -65,7 +77,7 @@ export function authRoutes(ctx: AppContext) {
     const link = `${ctx.config.publicUrl}/api/auth/verify?token=${token}&next=${encodeURIComponent(next)}`;
     // TODO(fas 1+): send via an EU e-mail provider. Until then the link is logged.
     console.log(`[auth] login link for ${email}: ${link}`);
-    return c.json({ ok: true, ...(ctx.config.devLoginLinks ? { devLink: link } : {}) });
+    return c.json({ ok: true, ...(ctx.config.devLoginLinks || codeOk ? { devLink: link } : {}) });
   });
 
   r.get("/verify", async (c) => {
